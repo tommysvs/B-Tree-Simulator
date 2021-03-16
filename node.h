@@ -12,8 +12,8 @@ class Node {
 	public:
 		Node(int _min, bool _leaf);
 
-		void insertNonFull(int k);
-		void splitChild(int i, Node* y);
+		void insert_non_full(int k);
+		void split_child(int i, Node* y);
 		void traverse();
 		Node* search(int k);
 

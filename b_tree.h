@@ -7,22 +7,17 @@ class BTree {
 	private:
 		Node* root;
 		int min;
+
 	public:
-		BTree(int _min) {
-			root = NULL;
-			min = _min;
-		}
+		BTree();
 
-		void traverse() {
-			if (root != NULL)
-				root->traverse();
-		}
+		void set_min(int);
+		
+		void insert(int);
+		void delete_(int);
+		void traverse();
 
-		Node* search(int k) {
-			return (root == NULL) ? NULL : root->search(k);
-		}
-
-		void insert(int k);
+		Node* search(int);
 };
 
 #endif

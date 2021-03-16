@@ -9,7 +9,7 @@ Node::Node(int min1, bool leaf1) {
 	n = 0;
 }
 
-void Node::insertNonFull(int k) {
+void Node::insert_non_full(int k) {
 	int i = n - 1;
 
 	if (leaf == true) {
@@ -26,17 +26,17 @@ void Node::insertNonFull(int k) {
 			i--;
 
 		if (child[i+1]->n == 2 * min - 1) {
-			splitChild(i + 1, child[i + 1]);
+			split_child(i + 1, child[i + 1]);
 
 			if (keys[i + 1] < k)
 				i++;
 		}
 
-		child[i + 1]->insertNonFull(k);
+		child[i + 1]->insert_non_full(k);
 	}
 }
 
-void Node::splitChild(int i, Node* y) {
+void Node::split_child(int i, Node* y) {
 	Node* z = new Node(y->min, y->leaf);
 	z->n = min - 1;
 
