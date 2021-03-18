@@ -14,8 +14,8 @@ class BTree {
 		void set_min(int);
 		
 		void insert(int);
-		void delete_(int);
-		void traverse();
+		bool remove(int);
+		void print();
 
 		Node* search(int);
 };

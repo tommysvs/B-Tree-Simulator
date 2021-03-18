@@ -6,16 +6,27 @@ class Node {
 		int* keys;
 		int min;
 		Node** child;
-		int n;
+		int total_keys;
 		bool leaf;
 
 	public:
-		Node(int _min, bool _leaf);
+		Node(int, bool);
 
-		void insert_non_full(int k);
-		void split_child(int i, Node* y);
+		void insert_non_full(int);
+		void split_child(int, Node*);
 		void traverse();
-		Node* search(int k);
+		void remove(int);
+		void remove_from_leaf(int);
+		void remove_from_nonleaf(int);
+		void fill(int);
+		void borrow_from_prev(int);
+		void borrow_from_next(int);
+		void merge(int);
+		Node* search(int);
+
+		int find_index(int);
+		int get_pred(int);
+		int get_succ(int);
 
 		friend class BTree;
 };

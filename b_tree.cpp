@@ -12,10 +12,10 @@ void BTree::insert(int _key) {
 	if (root == nullptr) {
 		root = new Node(min, true);
 		root->keys[0] = _key;
-		root->n = 1;
+		root->total_keys = 1;
 	}
 	else {
-		if (root->n == 2 * min - 1) {
+		if (root->total_keys == 2 * min - 1) {
 			Node* s = new Node(min, false);
 			s->child[0] = root;
 			s->split_child(0, root);
@@ -34,11 +34,16 @@ void BTree::insert(int _key) {
 	}
 }
 
-void BTree::delete_(int _key) {
+bool BTree::remove(int _key) {
+	if (root != nullptr && search(_key))
+		root->remove(_key);
+	else
+		return false;
 
+	return true;
 }
 
-void BTree::traverse() {
+void BTree::print() {
 	if (root != nullptr)
 		root->traverse();
 }
