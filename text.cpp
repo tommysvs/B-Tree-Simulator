@@ -2,18 +2,13 @@
 
 void Text::set_text(std::string _text, int _size, SDL_Renderer* _renderer) {
 	SDL_Color color = { 26, 97, 33, 255};
-	font = TTF_OpenFont("fonts/louis.ttf", _size);
-	text = _text;
+	font = TTF_OpenFont("font.ttf", _size);
+	const char* text = _text.c_str();
 
-	if (font) {
-		SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color);
-		SDL_Texture* _texture = SDL_CreateTextureFromSurface(_renderer, surface);
-		SDL_Rect rect;
-		rect.x = rect.y = 200;
-		set_texture(_texture);
-		set_rect(rect);
-	}
-	else {
-		std::cout << "\nError: Failed to load font.\n";
-	}
+	surface = TTF_RenderText_Solid(font, text, color);
+	texture = SDL_CreateTextureFromSurface(_renderer, surface);
+
+	rect = { 20, 20, surface->w, surface->h };
+
+	SDL_RenderCopy(_renderer, texture, NULL, &rect);
 }

@@ -1,9 +1,5 @@
 #include "graphics.h"
 
-void Graphics::set_texture(SDL_Texture* _texture) {
-	texture = _texture;
-}
-
 void Graphics::set_rect(SDL_Rect _rect) {
 	rect = _rect;
 }

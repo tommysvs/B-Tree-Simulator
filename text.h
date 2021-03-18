@@ -7,10 +7,12 @@
 #include "window.h"
 #include "graphics.h"
 
-class Text : Graphics {
+class Text {
 	private:
+		SDL_Surface* surface;
+		SDL_Texture* texture;
 		TTF_Font* font;
-		std::string text;
+		SDL_Rect rect;
 	public:
 		void set_text(std::string, int, SDL_Renderer*);
 };

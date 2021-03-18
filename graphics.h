@@ -5,10 +5,8 @@
 
 class Graphics {
 	private:
-		SDL_Texture* texture;
 		SDL_Rect rect;
 	public:
-		void set_texture(SDL_Texture*);
 		void set_rect(SDL_Rect);
 		void set_rect(SDL_Renderer*, SDL_Rect);
 		void set_pos(int, int);

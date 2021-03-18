@@ -27,11 +27,11 @@ void Window::create_window() {
         SDL_Surface* icon = IMG_Load("icon.png");
         SDL_SetWindowIcon(window, icon);
 
-        TTF_Init();
-
         if (window != 0) {
             renderer = SDL_CreateRenderer(window, -1, 0);
             SDL_bool done = SDL_FALSE;
+
+            TTF_Init();
 
             while (!done) {
                 SDL_Event event;
@@ -41,7 +41,7 @@ void Window::create_window() {
 
                 SDL_Rect rect = { 500, 40, 200, 50 }; //x, y, w, h
                 graphic.set_rect(renderer, rect);
-                text.set_text("Test", 14, renderer);
+                text.set_text("Lorem ipsum", 24, renderer);
 
                 SDL_RenderPresent(renderer);
 
