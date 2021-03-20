@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     BTree tree;
     Window window;
 
-    int min, key, option;
+    int order, key, option;
 
     do {
         system("cls");
@@ -32,19 +32,21 @@ int main(int argc, char* argv[]) {
             cout << "INSERTION\n\n";
 
             cout << "Insert order: ";
-            cin >> min;
+            cin >> order;
 
-            tree.set_min(min);
+            tree.set_order(order);
 
             cout << endl;
             do {
                 cout << "Insert key: ";
                 cin >> key;
                 tree.insert(key);
-            } while (key != -1);
+            } while (key != 77);
 
             cout << "\nTraversal of the constucted tree is: ";
             tree.print();
+            cout << endl;
+            tree.level(2);
 
             //window.create_window();
 

@@ -1,12 +1,15 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <iostream>
+#include <cmath>
+
 class Node {
-	private:
-		int* keys;
-		int min;
+	public:
+		int* data;
+		int order;
 		Node** child;
-		int total_keys;
+		int keys;
 		bool leaf;
 
 	public:
@@ -22,6 +25,7 @@ class Node {
 		void borrow_from_prev(int);
 		void borrow_from_next(int);
 		void merge(int);
+		void level(Node*, int);
 		Node* search(int);
 
 		int find_index(int);

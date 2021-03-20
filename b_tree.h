@@ -4,20 +4,21 @@
 #include "node.h"
 
 class BTree {
-	private:
-		Node* root;
-		int min;
+private:
+	Node* root;
+	int order;
 
-	public:
-		BTree();
+public:
+	BTree();
 
-		void set_min(int);
-		
-		void insert(int);
-		bool remove(int);
-		void print();
+	void set_order(int);
 
-		Node* search(int);
+	void insert(int);
+	bool remove(int);
+	void print();
+	void level(int);
+
+	Node* search(int);
 };
 
 #endif
